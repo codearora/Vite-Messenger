@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './components/Home.jsx'
-import About from './components/About.jsx'
-import Contact from './components/Contact.jsx'
+import NewCounter from './components/NewCounter.jsx'
+// import Home from './components/Home.jsx'
+// import About from './components/About.jsx'
+// import Contact from './components/Contact.jsx'
+
+const Home = lazy(() => import('./components/Home.jsx'))
+const About = lazy(() => import('./components/About.jsx'))
+const Contact = lazy(() => import('./components/Contact.jsx'))
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
+      },
+      {
+        path: '/counter',
+        element: <NewCounter />,
       },
     ],
   },

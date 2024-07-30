@@ -34,6 +34,14 @@ export default function Header() {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-blue-700 underline' : ""}
+                        to="/counter"
+                    >
+                        Counter
+                    </NavLink>
+                </li>
+                <li>
                     <button onClick={() => { setIsOpen(true) }}>Sign In</button>
                     <Modal isOpen={isOpen} />
                 </li>

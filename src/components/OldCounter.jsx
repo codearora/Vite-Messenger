@@ -1,4 +1,5 @@
 import { Component } from "react"
+import withCounter from "./withCounter";
 
 class OldCounter extends Component {
     constructor() {
@@ -18,6 +19,7 @@ class OldCounter extends Component {
         console.log("component will unmount")
     }
     render() {
+        console.log(this.props)
         console.log("render method")
         console.log(this);
         const { name } = this.props;
@@ -27,8 +29,9 @@ class OldCounter extends Component {
             <h2>{this.state.count}</h2>
             <button onClick={() => this.setState({ count: this.state.count + 1 })}>Button</button>
             {/* <button onClick={function () { this.setState({ count: this.state.count - 1 }) }}>Button to Subtract</button> */}
+            <button onMouseEnter={() => this.setState({ count: this.state.count - 1 })}>Button Decrement</button>
         </>
     }
 }
 
-export default OldCounter
+export default withCounter(OldCounter)
